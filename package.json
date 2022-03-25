@@ -1,0 +1,16 @@
+{
+  "name": "@divriots/dockit-stencil",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "{{ homepage }}",
+  "scripts": {
+    "serve": "npx backlight@latest serve V8qoviXtwkqjKwpLCQXT --open"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@stencil/core": "2.14.2",
+    "@divriots/dockit-core": "0.7.2"
+  }
+}

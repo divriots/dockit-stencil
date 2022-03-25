@@ -1,0 +1,9 @@
+{
+  "packages": {
+    "dir": "",
+    "menu": [
+      ["COMPONENTS", ["Props", "Events"]],
+      ["INFRASTRUCTURE", ["layout", "doc-utils"]]
+    ]
+  }
+}
