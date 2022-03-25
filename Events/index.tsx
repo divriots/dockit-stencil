@@ -14,7 +14,7 @@ export default ({ tag }) => (
       </tr>
     </thead>
     <tbody>
-      {getMeta(this.tag).events?.map((e: DocsEvent) => (
+      {getMeta(tag).events?.map((e: DocsEvent) => (
         <tr key={e.name}>
           <td>{e.name}</td>
           <td>{docsField(e)}</td>
