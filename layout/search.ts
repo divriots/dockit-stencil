@@ -28,10 +28,6 @@ function indexDoc(content: string, { file, title, section, base }) {
 }
 
 class SearchBox extends LitElement {
-  static properties = {
-    docs: { type: Array, noAccessor: true },
-  };
-
   placeHolder = window.navigator.platform === 'MacIntel' ? '⌘K' : 'Ctrl+K';
 
   get searchInput(): HTMLInputElement {
@@ -58,7 +54,10 @@ class SearchBox extends LitElement {
         this.updateHits();
       } else if (e.key === 'Escape') this.hideHits();
     });
-    const all = this.docs?.map((k) => [k + '?raw', k + '?docmeta']);
+  }
+
+  set docs(value: string[]) {
+    const all = value.map((k) => [k + '?raw', k + '?docmeta']);
     for (const [docContent, docMeta] of all || []) {
       Promise.all([
         import(/* @vite-ignore */ docContent),
