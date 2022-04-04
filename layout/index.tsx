@@ -1,10 +1,13 @@
 /* @jsx h */
 import { h } from '@stencil/core';
-import './search';
 import '@divriots/dockit-core/layout/dockit-layout.define.js';
 import { styles } from '@divriots/dockit-core/layout';
+import { search } from '../Search/search-indexer';
+import '../Search/search-box';
 
 export default ({ __context, logoURL }, children) => {
+  const docs = __context.pages.map((p) => __context.base + p.input);
+  const docSearch = (searchValue: string) => search(searchValue, docs);
   return (
     <div>
       <style innerHTML={styles}></style>
@@ -21,7 +24,7 @@ export default ({ __context, logoURL }, children) => {
         </div>
         <doc-search
           slot="topbar"
-          docs={__context.docs}
+          search={docSearch}
           style={{ width: '80%' }}
         ></doc-search>
         <div class="prose dark:prose-invert">{children}</div>
