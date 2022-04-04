@@ -1,9 +1,9 @@
 /* @jsx h */
 import { h } from '@stencil/core';
-import './search';
 import '@divriots/dockit-core/layout/dockit-layout.define.js';
 import { styles } from '@divriots/dockit-core/layout';
-import { search } from './search-indexer';
+import { search } from '../Search/search-indexer';
+import '../Search/search-box';
 
 export default ({ __context, logoURL }, children) => {
   const docs = __context.pages.map((p) => __context.base + p.input);

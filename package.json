@@ -14,7 +14,6 @@
     "minisearch": "*",
     "@stencil/core": "2.14.2",
     "@divriots/dockit-core": "^0.7.8",
-    "stencil-jsx-runtime": "*",
-    "path": "*"
+    "stencil-jsx-runtime": "*"
   }
 }
