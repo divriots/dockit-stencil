@@ -217,7 +217,7 @@ class SearchBox extends LitElement {
         text-decoration: none;
         display: block;
         border-radius: 0.25rem;
-        padding: 0.5rem;
+        padding: 0.5rem 0.25rem;
         border: 1px solid transparent;
       }
       #search-hits a:hover {
@@ -225,7 +225,7 @@ class SearchBox extends LitElement {
       }
       #search-hits li {
         border-bottom: 1px solid var(--dockit-layout-header-border-color);
-        margin: 0.5rem 0;
+        margin: 0.25rem 0;
       }
       #search-hits .highlight {
         color: var(--dockit-layout-accent);
@@ -234,12 +234,13 @@ class SearchBox extends LitElement {
         font-weight: 600;
       }
       #search-hits header .tags {
+        font-size: small;
         opacity: 0.7;
         float: right;
       }
       #search-hits header .tags > * {
-        background: var(--dockit-layout-bg);
-        padding: 0.125rem 0.5rem;
+        background: rgba(128, 128, 128, 0.2);
+        padding: 0.25rem 0.5rem;
         border-radius: 0.25rem;
       }
       #search-hits .content {
