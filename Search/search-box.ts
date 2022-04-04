@@ -56,7 +56,7 @@ class SearchBox extends LitElement {
           ${hit.section ? `<span>${hit.section}</span>` : ''}
         </span>
       </header>
-      ${hit.body ? html`<textarea value=${hit.body}></textarea>` : ''}
+      ${hit.body ? html`<p class="content">${hit.body}</p>` : ''}
     </a>`;
   }
 
@@ -73,6 +73,7 @@ class SearchBox extends LitElement {
     this.searchHits.style.display = 'block';
     this.searchInput.focus();
     this.searchInput.placeholder = '';
+    this.requestUpdate();
   }
 
   highlight(hit) {
@@ -81,7 +82,7 @@ class SearchBox extends LitElement {
       : hit.body.length < 100
       ? hit.body
       : hit.body.slice(0, 100) + '...';
-    hit.body = hit.body.replace(/</gm, '&lt;');
+    hit.body = hit.body.replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
     for (const t of hit.terms.sort((a, b) => b.length - a.length)) {
       for (const m of hit.match[t]) {
         hit[m] = hit[m].replace(
@@ -212,7 +213,7 @@ class SearchBox extends LitElement {
         color: var(--c-brand);
       }
       #search-hits header {
-        font-weight: semibold;
+        font-weight: 600;
       }
       #search-hits header .tags {
         opacity: 0.7;
@@ -223,7 +224,7 @@ class SearchBox extends LitElement {
         padding: 0.125rem 0.5rem;
         border-radius: 0.25rem;
       }
-      #search-hits code {
+      #search-hits .content {
         font-size: small;
         font-family: sans-serif !important;
       }
