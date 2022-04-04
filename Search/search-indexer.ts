@@ -4,7 +4,7 @@ const miniSearch = new MiniSearch({
   fields: ['title', 'headline', 'body', 'section'], // fields to index for full-text search
   storeFields: ['title', 'headline', 'body', 'section'], // fields to return with search results
   searchOptions: {
-    boost: { headline: 3, title: 2, section: 1 },
+    boost: { headline: 4, title: 3, section: 2 },
     fuzzy: 0.2,
     prefix: true,
   },

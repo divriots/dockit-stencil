@@ -1,4 +1,5 @@
 import { LitElement, css, html } from 'lit';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 class SearchBox extends LitElement {
   search = null;
@@ -41,14 +42,16 @@ class SearchBox extends LitElement {
           ? html`<li><i>Type for searching...</i></li>`
           : this.hits.length === 0
           ? html`<li><i>No match found</i></li>`
-          : this.hits.map((hit) => html`<li>${this.hitHTML(hit)}</li>`)}
+          : this.hits.map(
+              (hit) => html`<li>${unsafeHTML(this.hitHTML(hit))}</li>`
+            )}
       </ul>
       <div id="search-overlay" @click=${() => this.hideHits()}></div>
     </div>`;
   }
 
   hitHTML(hit) {
-    return html`<a href="${hit.id}">
+    return `<a href="${hit.id}">
       <header>
         ${hit.headline}
         <span class="tags">
@@ -56,7 +59,7 @@ class SearchBox extends LitElement {
           ${hit.section ? `<span>${hit.section}</span>` : ''}
         </span>
       </header>
-      ${hit.body ? html`<p class="content">${hit.body}</p>` : ''}
+      ${hit.body ? `<pre class="content">${hit.body}</pre>` : ''}
     </a>`;
   }
 
@@ -67,7 +70,12 @@ class SearchBox extends LitElement {
       this.hits = (await this.search?.(searchValue))
         .filter(Boolean)
         .slice(0, 10)
-        .map(this.highlight);
+        .map(this.mark)
+        .map((hit) => {
+          hit.headline = this.highlight(hit.headline);
+          hit.body = this.highlight(hit.body);
+          return hit;
+        });
     }
     this.searchOverlay.style.display = 'block';
     this.searchHits.style.display = 'block';
@@ -76,22 +84,34 @@ class SearchBox extends LitElement {
     this.requestUpdate();
   }
 
-  highlight(hit) {
-    hit.body = !hit.body
-      ? ''
-      : hit.body.length < 100
-      ? hit.body
-      : hit.body.slice(0, 100) + '...';
-    hit.body = hit.body.replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
-    for (const t of hit.terms.sort((a, b) => b.length - a.length)) {
-      for (const m of hit.match[t]) {
+  mark(hit) {
+    debugger;
+    for (const t of hit.terms.sort((a, b) => b.length - a.length))
+      for (const m of hit.match[t])
         hit[m] = hit[m].replace(
-          new RegExp(` (${t}) `, 'gi'),
-          ' <strong class="highlight">$1</strong> '
+          new RegExp(`([^\0]?)(${t})([^\0]?)`, 'gi'),
+          '$1\0$2\0$3'
         );
-      }
-    }
     return hit;
+  }
+
+  highlight(value: string) {
+    let content = value.replace(/</gm, '&lt;').replace(/>/gm, '&gt;');
+    const first = content.indexOf('\0');
+    if (first >= 0) {
+      const last = content.lastIndexOf('\0');
+      const start = Math.max(0, first - 50);
+      const end = Math.min(Math.max(last, first) + 50, content.length);
+      content =
+        (start < 0 ? '...' : '') +
+        content.slice(start, end) +
+        (end < content.length - 1 ? '...' : '');
+      content = content.replace(
+        /\0(.*?)\0/g,
+        '<strong class="highlight">$1</strong>'
+      );
+    }
+    return content;
   }
 
   hideHits() {
@@ -120,6 +140,7 @@ class SearchBox extends LitElement {
   static get styles() {
     return css`
       :host {
+        --c-brand: red;
         --c-bg-color: var(--dockit-layout-bg);
         --c-border-color: var(--dockit-layout-header-border-color);
       }
@@ -195,6 +216,8 @@ class SearchBox extends LitElement {
         }
       }
       #search-hits a {
+        overflow: hidden;
+        text-overflow: ellipsis;
         color: inherit;
         text-decoration: none;
         display: block;
@@ -225,7 +248,8 @@ class SearchBox extends LitElement {
         border-radius: 0.25rem;
       }
       #search-hits .content {
-        font-size: small;
+        max-height: 2rem;
+        font-size: 70%;
         font-family: sans-serif !important;
       }
     `;
