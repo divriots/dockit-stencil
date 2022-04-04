@@ -103,7 +103,7 @@ class SearchBox extends LitElement {
       const start = Math.max(0, first - 50);
       const end = Math.min(Math.max(last, first) + 50, content.length);
       content =
-        (start < 0 ? '...' : '') +
+        (start > 0 ? '...' : '') +
         content.slice(start, end) +
         (end < content.length - 1 ? '...' : '');
       content = content.replace(
@@ -248,8 +248,7 @@ class SearchBox extends LitElement {
         border-radius: 0.25rem;
       }
       #search-hits .content {
-        max-height: 2rem;
-        font-size: 70%;
+        font-size: 80%;
         font-family: sans-serif !important;
       }
     `;
