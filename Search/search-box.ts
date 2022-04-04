@@ -85,7 +85,6 @@ class SearchBox extends LitElement {
   }
 
   mark(hit) {
-    debugger;
     for (const t of hit.terms.sort((a, b) => b.length - a.length))
       for (const m of hit.match[t])
         hit[m] = hit[m].replace(
