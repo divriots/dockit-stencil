@@ -19,7 +19,7 @@ function indexDoc(content: string, { file, title, section, base }) {
   while ((heading = headingRE.exec(content))) {
     const [, level, headline, body] = heading;
     let url = base + file;
-    if (level.length > 1) url += `#\${headline.toLowerCase()}`;
+    if (level.length > 1) url += `#${headline.toLowerCase()}`;
     blocks.push({ id: url, title, section, headline, body });
   }
   docBlocks.set(file, blocks);
