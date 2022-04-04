@@ -139,11 +139,6 @@ class SearchBox extends LitElement {
 
   static get styles() {
     return css`
-      :host {
-        --c-brand: red;
-        --c-bg-color: var(--dockit-layout-bg);
-        --c-border-color: var(--dockit-layout-header-border-color);
-      }
       #search-box {
         position: relative;
         flex-grow: 1;
@@ -184,19 +179,19 @@ class SearchBox extends LitElement {
         display: flex;
       }
       #search-input {
-        border: 1px solid var(--c-border-color);
+        border: 1px solid var(--dockit-layout-header-border-color);
         border-radius: 0.5rem;
         padding: 0.5rem;
         padding-left: 2.5rem;
         width: 100%;
         z-index: 11;
         position: relative;
-        background: var(--c-bg-color);
+        background: var(--dockit-layout-bg);
         font-size: large;
         color: inherit;
       }
       #search-input:focus {
-        outline: 1px solid var(--c-brand);
+        outline: 1px solid var(--dockit-layout-accent);
       }
       #search-hits {
         display: none;
@@ -206,8 +201,8 @@ class SearchBox extends LitElement {
         list-style: none;
         overflow: auto;
         max-height: 70vh;
-        border: 1px solid var(--c-border-color);
-        background: var(--c-bg-color);
+        border: 1px solid var(--dockit-layout-header-border-color);
+        background: var(--dockit-layout-bg);
         z-index: 11;
         border-radius: 0.5rem;
         padding: 0.5rem;
@@ -226,14 +221,14 @@ class SearchBox extends LitElement {
         border: 1px solid transparent;
       }
       #search-hits a:hover {
-        border-color: var(--c-brand);
+        border-color: var(--dockit-layout-accent);
       }
       #search-hits li {
-        border-bottom: 1px solid var(--c-border-color);
+        border-bottom: 1px solid var(--dockit-layout-header-border-color);
         margin: 0.5rem 0;
       }
       #search-hits .highlight {
-        color: var(--c-brand);
+        color: var(--dockit-layout-accent);
       }
       #search-hits header {
         font-weight: 600;
@@ -243,7 +238,7 @@ class SearchBox extends LitElement {
         float: right;
       }
       #search-hits header .tags > * {
-        background: var(--c-bg-color);
+        background: var(--dockit-layout-bg);
         padding: 0.125rem 0.5rem;
         border-radius: 0.25rem;
       }
