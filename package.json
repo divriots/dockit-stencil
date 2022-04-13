@@ -13,7 +13,7 @@
     "lit": "*",
     "minisearch": "*",
     "@stencil/core": "2.14.2",
-    "@divriots/dockit-core": "^0.7.8",
+    "@divriots/dockit-core": "^0.8.1",
     "stencil-jsx-runtime": "*"
   }
 }
