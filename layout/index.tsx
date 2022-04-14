@@ -5,29 +5,25 @@ import { styles } from '@divriots/dockit-core/layout';
 import { search } from '@divriots/dockit-core/search';
 import '@divriots/dockit-core/search/dockit-search.define';
 
-export default ({ __context, logoURL }, children) => {
-  const docs = __context.pages.map((p) => __context.base + p.input);
-  const docSearch = (searchValue: string) => search(searchValue, docs);
-  return (
-    <div>
-      <style innerHTML={styles}></style>
-      <dockit-layout
-        context={__context}
-        on-color-scheme-change={({ detail }) => {
-          detail.colorScheme === 'dark'
-            ? document.documentElement.classList.add('dark')
-            : document.documentElement.classList.remove('dark');
-        }}
-      >
-        <div slot="logo" style={{ display: 'flex', height: '100%' }}>
-          <img src={logoURL} />
-        </div>
-        <doc-search
-          slot="topbar"
-          search={(query) => search(query, __context)}
-        ></doc-search>
-        <div class="prose dark:prose-invert">{children}</div>
-      </dockit-layout>
-    </div>
-  );
-};
+export default ({ __context, logoURL }, children) => (
+  <div>
+    <style innerHTML={styles}></style>
+    <dockit-layout
+      context={__context}
+      on-color-scheme-change={({ detail }) => {
+        detail.colorScheme === 'dark'
+          ? document.documentElement.classList.add('dark')
+          : document.documentElement.classList.remove('dark');
+      }}
+    >
+      <div slot="logo" style={{ display: 'flex', height: '100%' }}>
+        <img src={logoURL} />
+      </div>
+      <doc-search
+        slot="topbar"
+        search={(query) => search(query, __context)}
+      ></doc-search>
+      <div class="prose dark:prose-invert">{children}</div>
+    </dockit-layout>
+  </div>
+);

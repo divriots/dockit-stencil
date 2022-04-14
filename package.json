@@ -10,10 +10,8 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "lit": "*",
-    "minisearch": "*",
     "@stencil/core": "2.14.2",
-    "@divriots/dockit-core": "^0.8.1",
+    "@divriots/dockit-core": "^0.8.2",
     "stencil-jsx-runtime": "*"
   }
 }
