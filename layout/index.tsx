@@ -5,7 +5,7 @@ import { styles } from '@divriots/dockit-core/layout';
 import { search } from '@divriots/dockit-core/search';
 import '@divriots/dockit-core/search/dockit-search.define';
 
-export default ({ __context, logoURL }, children) => (
+export default ({ __context, logo: Logo }, children) => (
   <div>
     <style innerHTML={styles}></style>
     <dockit-layout
@@ -17,7 +17,7 @@ export default ({ __context, logoURL }, children) => (
       }}
     >
       <div slot="logo" style={{ display: 'flex', height: '100%' }}>
-        <img src={logoURL} />
+        {typeof Logo === string ? <img src={Logo} /> : <Logo />}
       </div>
       <doc-search
         slot="topbar"
