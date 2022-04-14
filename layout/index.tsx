@@ -17,7 +17,7 @@ export default ({ __context, logo: Logo }, children) => (
       }}
     >
       <div slot="logo" style={{ display: 'flex', height: '100%' }}>
-        {typeof Logo === string ? <img src={Logo} /> : <Logo />}
+        {typeof Logo === 'string' ? <img src={Logo} /> : <Logo />}
       </div>
       <doc-search
         slot="topbar"
