@@ -1,0 +1,989 @@
+{
+  "timestamp": "2021-09-22T17:31:14",
+  "compiler": {
+    "name": "node",
+    "version": "16.9.1"
+  },
+  "app": {
+    "namespace": "ExampleStencilLibrary",
+    "fsNamespace": "example-stencil-library",
+    "components": 1,
+    "entries": 1,
+    "bundles": 30,
+    "outputs": [
+      {
+        "name": "dist-collection",
+        "files": 3,
+        "generatedFiles": [
+          "./dist/collection/components/my-button/my-button.js"
+        ]
+      },
+      {
+        "name": "dist-lazy",
+        "files": 26,
+        "generatedFiles": ["./dist/cjs/example-stencil-library.cjs.js"]
+      },
+      {
+        "name": "dist-types",
+        "files": 1,
+        "generatedFiles": ["./dist/types/stencil-public-runtime.d.ts"]
+      }
+    ]
+  },
+  "options": {
+    "minifyJs": true,
+    "minifyCss": true,
+    "hashFileNames": true,
+    "hashedFileNameLength": 8,
+    "buildEs5": true
+  },
+  "formats": {
+    "esmBrowser": [
+      {
+        "key": "my-button.entry",
+        "components": ["my-button"],
+        "bundleId": "p-12cc1edd",
+        "fileName": "p-12cc1edd.entry.js",
+        "imports": ["p-24af5948.js"],
+        "originalByteSize": 562
+      }
+    ],
+    "esm": [],
+    "es5": [],
+    "system": [],
+    "commonjs": []
+  },
+  "components": [
+    {
+      "tag": "my-button",
+      "path": "./src/components/button/button.js",
+      "source": "./src/components/button/button.tsx",
+      "elementRef": "el",
+      "componentClassName": "JoyButton",
+      "assetsDirs": [],
+      "dependencies": ["my-icon", "my-spinner"],
+      "dependents": ["my-bottom-sheet", "my-dialog"],
+      "directDependencies": ["my-icon", "my-spinner"],
+      "directDependents": ["my-bottom-sheet", "my-dialog"],
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "encapsulation": "shadow",
+      "excludeFromCollection": false,
+      "events": [],
+      "internal": false,
+      "legacyConnect": [],
+      "legacyContext": [],
+      "listeners": [],
+      "methods": [
+        {
+          "name": "buttonLoading",
+          "docs": {
+            "text": "Allows to display the spinner while asynchronous tasks are pending",
+            "tags": [
+              {
+                "name": "param",
+                "text": "loading - loading status"
+              },
+              {
+                "name": "param",
+                "text": "timeout - if you want to display the loader during a specific timeout"
+              }
+            ]
+          },
+          "complexType": {
+            "signature": "(loading: boolean, timeout?: number) => Promise<void>",
+            "parameters": [
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "loading - loading status"
+                  }
+                ],
+                "text": "- loading status"
+              },
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "timeout - if you want to display the loader during a specific timeout"
+                  }
+                ],
+                "text": "- if you want to display the loader during a specific timeout"
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "internal": false
+        }
+      ],
+      "potentialCmpRefs": ["my-icon", "my-spinner"],
+      "properties": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "attribute": "disabled",
+          "reflect": false,
+          "mutable": true,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Disabled attribute for buttons"
+          },
+          "internal": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "attribute": "type",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "'button'",
+          "complexType": {
+            "original": "'button' | 'submit' | 'reset'",
+            "resolved": "\"button\" | \"reset\" | \"submit\"",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Type attribute for buttons"
+          },
+          "internal": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "attribute": "href",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Set the href of your link"
+          },
+          "internal": false
+        },
+        {
+          "name": "download",
+          "type": "boolean",
+          "attribute": "download",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If the link as a downloadable content"
+          },
+          "internal": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "attribute": "rel",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Native rel attribute for hyperlinks. See https://developer.mozilla.org/fr/docs/Web/HTML/Attributes/rel"
+          },
+          "internal": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "attribute": "target",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "'_blank' | '_self' | '_parent' | '_top'",
+            "resolved": "\"_blank\" | \"_parent\" | \"_self\" | \"_top\" | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Native target attribute for hyperlinks."
+          },
+          "internal": false
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "attribute": "variant",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "'primary'",
+          "complexType": {
+            "original": "ButtonVariants",
+            "resolved": "\"admin\" | \"ghost\" | \"main\" | \"primary\" | \"secondary\" | \"white\"",
+            "references": {
+              "ButtonVariants": {
+                "location": "import",
+                "path": "../../types"
+              }
+            }
+          },
+          "docs": {
+            "tags": [],
+            "text": "Button or Link color theme"
+          },
+          "internal": false
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "attribute": "size",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "'medium'",
+          "complexType": {
+            "original": "ButtonSizes",
+            "resolved": "\"large\" | \"medium\" | \"small\" | \"xsmall\"",
+            "references": {
+              "ButtonSizes": {
+                "location": "import",
+                "path": "../../types"
+              }
+            }
+          },
+          "docs": {
+            "tags": [],
+            "text": "Button or Link size"
+          },
+          "internal": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "attribute": "icon",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Set the icon name if you need one"
+          },
+          "internal": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "attribute": "loading",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Set the button in loading state"
+          },
+          "internal": false
+        }
+      ],
+      "shadowDelegatesFocus": false,
+      "states": []
+    },
+    {
+      "tag": "my-textarea",
+      "path": "./src/components/textarea/textarea.js",
+      "source": "./src/components/textarea/textarea.tsx",
+      "elementRef": "el",
+      "componentClassName": "JoyTextarea",
+      "assetsDirs": [],
+      "dependencies": ["my-icon"],
+      "dependents": [],
+      "directDependencies": ["my-icon"],
+      "directDependents": [],
+      "docs": {
+        "tags": [],
+        "text": ""
+      },
+      "encapsulation": "shadow",
+      "excludeFromCollection": false,
+      "events": [
+        {
+          "name": "valueChange",
+          "method": "valueChange",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": {
+            "tags": [],
+            "text": "Emitted when the value has changed. Generic event used by all other form fields"
+          },
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "internal": false
+        },
+        {
+          "name": "joyTextareaChange",
+          "method": "joyTextareaChange",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": {
+            "tags": [],
+            "text": "Emitted when the input value has changed."
+          },
+          "complexType": {
+            "original": "{value: string}",
+            "resolved": "{ value: string; }",
+            "references": {}
+          },
+          "internal": false
+        },
+        {
+          "name": "joyTextareaInput",
+          "method": "joyTextareaInput",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": {
+            "tags": [],
+            "text": "Emitted when a keyboard input occurred."
+          },
+          "complexType": {
+            "original": "KeyboardEvent",
+            "resolved": "KeyboardEvent",
+            "references": {
+              "KeyboardEvent": {
+                "location": "global"
+              }
+            }
+          },
+          "internal": false
+        },
+        {
+          "name": "joyTextareaBlur",
+          "method": "joyTextareaBlur",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": {
+            "tags": [],
+            "text": "Emitted when the input loses focus."
+          },
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global"
+              }
+            }
+          },
+          "internal": false
+        },
+        {
+          "name": "joyTextareaFocus",
+          "method": "joyTextareaFocus",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": {
+            "tags": [],
+            "text": "Emitted when the input has focus."
+          },
+          "complexType": {
+            "original": "FocusEvent",
+            "resolved": "FocusEvent",
+            "references": {
+              "FocusEvent": {
+                "location": "global"
+              }
+            }
+          },
+          "internal": false
+        }
+      ],
+      "internal": false,
+      "legacyConnect": [],
+      "legacyContext": [],
+      "listeners": [],
+      "methods": [
+        {
+          "name": "setFocus",
+          "docs": {
+            "text": "Sets focus on the native `textarea` in `ion-textarea`. Use this method instead of the global\n`textarea.focus()`.",
+            "tags": []
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "internal": false
+        },
+        {
+          "name": "setBlur",
+          "docs": {
+            "text": "Sets blur on the native `textarea` in `ion-textarea`. Use this method instead of the global\n`textarea.blur()`.",
+            "tags": [
+              {
+                "name": "internal"
+              }
+            ]
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "internal": true
+        },
+        {
+          "name": "getInputElement",
+          "docs": {
+            "text": "Returns the textarea nested in the component shadowDOM",
+            "tags": [
+              {
+                "name": "return",
+                "text": "- Returns the native `<textarea>` element used under the hood."
+              }
+            ]
+          },
+          "complexType": {
+            "signature": "() => Promise<HTMLTextAreaElement>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global"
+              },
+              "HTMLTextAreaElement": {
+                "location": "global"
+              }
+            },
+            "return": "Promise<HTMLTextAreaElement>"
+          },
+          "internal": false
+        }
+      ],
+      "potentialCmpRefs": ["my-icon"],
+      "properties": [
+        {
+          "name": "fireFocusEvents",
+          "type": "boolean",
+          "attribute": "fire-focus-events",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "true",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [
+              {
+                "name": "internal"
+              }
+            ],
+            "text": "This is required for a WebKit bug which requires us to\nblur and focus an input to properly focus the input in\nan item with delegatesFocus. It will no longer be needed\nwith iOS 14."
+          },
+          "internal": true
+        },
+        {
+          "name": "autocapitalize",
+          "type": "string",
+          "attribute": "autocapitalize",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "'none'",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Indicates whether and how the text value should be automatically capitalized as it is entered/edited by the user."
+          },
+          "internal": false
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "attribute": "autofocus",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "This Boolean attribute lets you specify that a form control should have input focus when the page loads."
+          },
+          "internal": false
+        },
+        {
+          "name": "clearOnEdit",
+          "type": "boolean",
+          "attribute": "clear-on-edit",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If `true`, the value will be cleared after focus upon edit. Defaults to `true` when `type` is `\"password\"`, `false` for all other types."
+          },
+          "internal": false
+        },
+        {
+          "name": "debounce",
+          "type": "number",
+          "attribute": "debounce",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "0",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke. This also impacts form bindings such as `ngModel` or `v-model`."
+          },
+          "internal": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "attribute": "disabled",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If `true`, the user cannot interact with the textarea."
+          },
+          "internal": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "attribute": "invalid",
+          "reflect": false,
+          "mutable": true,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If `true`, the textarea will be considered as invalid."
+          },
+          "internal": false
+        },
+        {
+          "name": "inputmode",
+          "type": "string",
+          "attribute": "inputmode",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search'",
+            "resolved": "\"decimal\" | \"email\" | \"none\" | \"numeric\" | \"search\" | \"tel\" | \"text\" | \"url\" | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "A hint to the browser for which keyboard to display.\nPossible values: `\"none\"`, `\"text\"`, `\"tel\"`, `\"url\"`,\n`\"email\"`, `\"numeric\"`, `\"decimal\"`, and `\"search\"`."
+          },
+          "internal": false
+        },
+        {
+          "name": "enterkeyhint",
+          "type": "string",
+          "attribute": "enterkeyhint",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send'",
+            "resolved": "\"done\" | \"enter\" | \"go\" | \"next\" | \"previous\" | \"search\" | \"send\" | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "A hint to the browser for which enter key to display.\nPossible values: `\"enter\"`, `\"done\"`, `\"go\"`, `\"next\"`,\n`\"previous\"`, `\"search\"`, and `\"send\"`."
+          },
+          "internal": false
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "attribute": "maxlength",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the maximum number of characters that the user can enter."
+          },
+          "internal": false
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "attribute": "minlength",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If the value of the type attribute is `text`, `email`, `search`, `password`, `tel`, or `url`, this attribute specifies the minimum number of characters that the user can enter."
+          },
+          "internal": false
+        },
+        {
+          "name": "minlengthLabel",
+          "type": "string",
+          "attribute": "minlength-label",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Use this prop to give component the translation used to display minimum chars count."
+          },
+          "internal": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "attribute": "name",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "this.inputId",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "The name of the control, which is submitted with the form data."
+          },
+          "internal": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "attribute": "placeholder",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "string | null",
+            "resolved": "null | string | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Instructional text that shows before the input has a value."
+          },
+          "internal": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "attribute": "readonly",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If `true`, the user cannot modify the value."
+          },
+          "internal": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "attribute": "required",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If `true`, the user must fill in a value before submitting a form."
+          },
+          "internal": false
+        },
+        {
+          "name": "spellcheck",
+          "type": "boolean",
+          "attribute": "spellcheck",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If `true`, the element will have its spelling and grammar checked."
+          },
+          "internal": false
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "attribute": "cols",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "The visible width of the text control, in average character widths. If it is specified, it must be a positive integer."
+          },
+          "internal": false
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "attribute": "rows",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "defaultValue": "4",
+          "complexType": {
+            "original": "number | undefined",
+            "resolved": "number | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "The number of visible text lines for the control."
+          },
+          "internal": false
+        },
+        {
+          "name": "wrap",
+          "type": "string",
+          "attribute": "wrap",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": true,
+          "complexType": {
+            "original": "'hard' | 'soft' | 'off'",
+            "resolved": "\"hard\" | \"off\" | \"soft\" | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "Indicates how the control wraps text."
+          },
+          "internal": false
+        },
+        {
+          "name": "autoGrow",
+          "type": "boolean",
+          "attribute": "auto-grow",
+          "reflect": false,
+          "mutable": false,
+          "required": false,
+          "optional": false,
+          "defaultValue": "false",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "If `true`, the element height will increase based on the value."
+          },
+          "internal": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "attribute": "value",
+          "reflect": false,
+          "mutable": true,
+          "required": false,
+          "optional": true,
+          "defaultValue": "''",
+          "complexType": {
+            "original": "string | null",
+            "resolved": "null | string | undefined",
+            "references": {}
+          },
+          "docs": {
+            "tags": [],
+            "text": "The value of the textarea."
+          },
+          "internal": false
+        }
+      ],
+      "shadowDelegatesFocus": false,
+      "states": [
+        {
+          "name": "hasFocus"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "cmps": [],
+      "entryKey": "my-button.entry"
+    }
+  ],
+  "componentGraph": {
+    "sc-my-button": ["p-24af5948.js"]
+  },
+  "sourceGraph": {
+    "./src/components/my-button/my-button.tsx": ["./src/utils/utils"],
+    "./src/index.ts": [],
+    "./src/utils/utils.ts": []
+  },
+  "collections": []
+}
