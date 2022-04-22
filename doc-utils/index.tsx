@@ -1,8 +1,9 @@
 /* @jsx h */
 import { h } from '@stencil/core';
 
-export const getMeta = (tag: string) =>
-  (customElements.get(tag) as any)?.COMPILER_META as DocsMeta;
+export const getMeta = (tag: string, stats): DocMeta =>
+  stats.components.find((c) => c.tag === tag) ||
+  (customElements.get(tag) as any)?.COMPILER_META;
 
 export const preData = (data: any) => (
   <pre>

@@ -3,7 +3,7 @@ import { h } from '@stencil/core';
 import type { DocsEvent } from '../doc-utils';
 import { preData, docsField, getType, getMeta } from '../doc-utils';
 
-export default ({ tag }) => (
+export default ({ tag, stats }) => (
   <table style={{ tableLayout: 'auto' }}>
     <thead>
       <tr>
@@ -14,7 +14,7 @@ export default ({ tag }) => (
       </tr>
     </thead>
     <tbody>
-      {getMeta(tag).events?.map((e: DocsEvent) => (
+      {getMeta(tag, stats)?.events?.map((e: DocsEvent) => (
         <tr key={e.name}>
           <td>{e.name}</td>
           <td>{docsField(e)}</td>

@@ -3,7 +3,7 @@ import { h } from '@stencil/core';
 import type { DocsProp } from '../doc-utils';
 import { preData, docsField, getType, getMeta } from '../doc-utils';
 
-export default ({ tag }) => (
+export default ({ tag, stats }) => (
   <table style={{ tableLayout: 'auto' }}>
     <thead>
       <tr>
@@ -16,7 +16,7 @@ export default ({ tag }) => (
       </tr>
     </thead>
     <tbody>
-      {getMeta(tag).properties?.map((prop: DocsProp) => (
+      {getMeta(tag, stats)?.properties?.map((prop: DocsProp) => (
         <tr key={prop.name}>
           <td>{prop.name}</td>
           <td>{prop.attribute}</td>
